@@ -1,35 +1,39 @@
-// Multimedia Assignment 1
-// LZ78 Compression and Decompression
-// Alaa Farouk 20170058
-// Lamya Raed  20170399
+package com.company;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        String UserInput, Code;
-        int index;
-        LZ78 c =  new LZ78();
-        int choice;
         Scanner input = new Scanner(System.in);
-        System.out.println("Welcome, If you want to Compress Enter 1");
-        System.out.println("\tIf you want to Compress Enter 1");
-        System.out.println("\tIf you want to Decompress Enter 2");
-        choice = input.nextInt();
-        switch (choice)
+        Scanner inputSent = new Scanner(System.in);
+        int x = 0, y;
+        String Sentence;
+        AdaptiveHuffman Huffman;
+        System.out.println("Welcome To Adaptive Huffman Compression and Decompression");
+        System.out.println("\t 1- Compress");
+        System.out.println("\t 2- Decompress");
+        x = input.nextInt();
+        if(x == 1)
         {
-            case 1:
-                System.out.println("\nWrite the Sentence to Compress");
-                Scanner n = new Scanner(System.in);
-                UserInput = n.nextLine();
-                System.out.println("\nYour Tags Are :");
-                c.Compression(UserInput);
-                break;
-            case 2:
-            	c.Decompression();
-                break;
-
+            System.out.println("What is your Maximum Node Number");
+            y = input.nextInt();
+            Huffman = new AdaptiveHuffman(y);
+            System.out.println("Write the Sentence you want to Compress :");
+            Sentence = inputSent.nextLine();
+            Huffman.Compression(Sentence);
         }
+
+        else if (x == 2){
+            System.out.println("What is your Maximum Node Number");
+            y = input.nextInt();
+            Huffman = new AdaptiveHuffman(y);
+            System.out.println("Write the Tags you want to Decompress :");
+            Sentence = inputSent.nextLine();
+            Huffman.Decompression(Sentence);
+        }
+        else
+            System.out.println("Incorrect Choice");
+
     }
 }
