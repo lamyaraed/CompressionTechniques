@@ -1,0 +1,13 @@
+Sentence to Compress : abababb
+Tags : <0,a> <0,b> <1,b> <3,b> 
+Your Dictionary : 
+0	null
+1	a
+2	b
+3	ab
+4	abb
+Compression Ratio : 
+Orginal Size = 56
+Number Of Tags = 4
+Compressed Size = 48
+Compression Ratio = 0.0
